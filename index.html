@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge — The Agentic Coding Tool That Actually Works</title>
+    <meta name="description" content="100% local agentic coding tool. Zero cloud. 20 language parsers, 35 tools, knowledge graph, self-correcting agent.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔨</text></svg>">
+</head>
+<body>
+    <!-- Particles Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🔨</span>
+                <span class="logo-text">Forge</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#comparison">Compare</a>
+                <a href="#install">Install</a>
+                <a href="https://github.com/shindeyamit226-max/forge" class="btn btn-sm btn-outline" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                <span>100% Local • Zero Cloud • MIT License</span>
+            </div>
+            <h1 class="hero-title">
+                The Agentic Coding Tool<br>
+                <span class="gradient-text">That Actually Works</span>
+            </h1>
+            <p class="hero-subtitle">
+                Talk to your codebase like a senior engineer is sitting next to you.
+                Forge plans, executes, verifies, and self-corrects — all on your machine.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="14156">0</span>
+                    <span class="stat-label">Lines of Code</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="35">0</span>
+                    <span class="stat-label">Built-in Tools</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="20">0</span>
+                    <span class="stat-label">Language Parsers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="54">0</span>
+                    <span class="stat-label">Tests Passing</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#install" class="btn btn-primary btn-lg">
+                    <span>Get Started</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://github.com/shindeyamit226-max/forge" class="btn btn-ghost btn-lg" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>Star on GitHub</span>
+                </a>
+            </div>
+            <!-- Terminal Demo -->
+            <div class="terminal-demo">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">forge — ~/my-project</span>
+                </div>
+                <div class="terminal-body" id="terminalDemo">
+                    <div class="terminal-line">
+                        <span class="prompt">You:</span>
+                        <span class="typed-text" id="typedCommand"></span>
+                        <span class="cursor">▌</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2>Everything a coding tool should be</h2>
+                <p>Built from the ground up to be the best. Not a wrapper around an API — a real tool with real intelligence.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Knowledge Graph</h3>
+                    <p>Like Obsidian, but for code. Every function, class, and file is connected. Change one thing — instantly know what breaks.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="100">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Self-Correcting Agent</h3>
+                    <p>Plans, executes, verifies, and fixes its own mistakes. If tests fail, it analyzes the error and retries with the fix.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="200">
+                    <div class="feature-icon">📝</div>
+                    <h3>20 Language Parsers</h3>
+                    <p>Real AST parsing for Python, JS, TS, Go, Rust, Java, C++, Ruby, PHP, Swift, Kotlin, Scala, SQL, and more.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="300">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Semantic Search</h3>
+                    <p>Find code by meaning, not keywords. BM25 ranking over TF-IDF index. Ask "how does auth work?" and get the answer.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="400">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Security Scanner</h3>
+                    <p>Detects SQL injection, XSS, hardcoded secrets, weak crypto, and 10+ vulnerability patterns. Every issue has a fix.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="500">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Plugin System</h3>
+                    <p>Drop a .py file in ~/.forge/plugins/ — it auto-loads. Add tools, hooks, and generators in seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">How It Works</span>
+                <h2>Think. Act. Verify. Learn.</h2>
+                <p>The ReAct pattern — the same approach used by the most advanced AI agents.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>🧠 Understand</h3>
+                        <p>Forge reads your codebase, builds a knowledge graph, and understands the relationships between every symbol.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>📊 Analyze</h3>
+                        <p>Before making any change, it runs impact analysis. What calls this? What tests cover it? What's the risk level?</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>📋 Plan</h3>
+                        <p>Complex tasks are broken into ordered steps. Each step is specific, actionable, and verifiable.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>⚡ Execute</h3>
+                        <p>Surgical edits using AST-aware tools. Not text replacement — real code understanding.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>✅ Verify</h3>
+                        <p>Runs tests, checks for errors, validates the change. If something breaks, it self-corrects.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>🧠 Learn</h3>
+                        <p>Remembers your preferences, coding patterns, and solutions. Gets better every session.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Compare</span>
+                <h2>How Forge stacks up</h2>
+                <p>We didn't just build another tool. We built the tool we wished existed.</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Claude Code</th>
+                            <th>Cursor</th>
+                            <th>Aider</th>
+                            <th class="highlight">🔨 Forge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>100% Local</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes">✅</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Privacy First</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes">✅</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Knowledge Graph</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>AST-Aware Editing</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Semantic Search</td>
+                            <td class="no">❌</td>
+                            <td class="partial">Basic</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅ BM25</td>
+                        </tr>
+                        <tr>
+                            <td>Self-Correcting</td>
+                            <td class="partial">Partial</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Impact Analysis</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Persistent Memory</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Security Scanner</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Plugin System</td>
+                            <td class="no">❌</td>
+                            <td class="partial">Limited</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>20 Language Parsers</td>
+                            <td class="no">❌</td>
+                            <td class="partial">Partial</td>
+                            <td class="no">❌</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Bring Your Own LLM</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes">✅</td>
+                            <td class="yes highlight">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Free & Open Source</td>
+                            <td class="no">❌</td>
+                            <td class="no">❌</td>
+                            <td class="yes">✅</td>
+                            <td class="yes highlight">✅ MIT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation -->
+    <section class="install" id="install">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Install</span>
+                <h2>Up and running in 60 seconds</h2>
+                <p>No accounts. No API keys. No cloud. Just code.</p>
+            </div>
+            <div class="install-steps">
+                <div class="install-step">
+                    <div class="install-step-number">1</div>
+                    <h3>Clone & Install</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code>git clone https://github.com/shindeyamit226-max/forge.git
+cd forge
+pip install -e .</code></pre>
+                    </div>
+                </div>
+                <div class="install-step">
+                    <div class="install-step-number">2</div>
+                    <h3>Pull a Model</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Install Ollama: https://ollama.com
+ollama pull codellama:13b</code></pre>
+                    </div>
+                </div>
+                <div class="install-step">
+                    <div class="install-step-number">3</div>
+                    <h3>Run Forge</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Interactive mode
+forge
+
+# One-shot mode
+forge run "add authentication to the API"</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Showcase -->
+    <section class="tools-showcase" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">35 Tools</span>
+                <h2>Every tool you need</h2>
+                <p>From file operations to knowledge graph queries. Everything built-in.</p>
+            </div>
+            <div class="tools-categories">
+                <div class="tool-category">
+                    <h3>🧠 Knowledge Graph</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">graph_who_calls</span>
+                        <span class="tool-tag">graph_impact</span>
+                        <span class="tool-tag">graph_related</span>
+                        <span class="tool-tag">backlinks</span>
+                        <span class="tool-tag">graph_patterns</span>
+                        <span class="tool-tag">graph_call_chain</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>📝 Code Intelligence</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">find_symbol</span>
+                        <span class="tool-tag">get_function</span>
+                        <span class="tool-tag">semantic_search</span>
+                        <span class="tool-tag">explain_code</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>📁 File Operations</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">read</span>
+                        <span class="tool-tag">write</span>
+                        <span class="tool-tag">edit</span>
+                        <span class="tool-tag">multi_edit</span>
+                        <span class="tool-tag">create</span>
+                        <span class="tool-tag">list_dir</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>🔀 Git & Analysis</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">git_workflow</span>
+                        <span class="tool-tag">analyze_errors</span>
+                        <span class="tool-tag">test</span>
+                        <span class="tool-tag">shell</span>
+                        <span class="tool-tag">search</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>🧠 Memory & Reasoning</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">remember</span>
+                        <span class="tool-tag">recall</span>
+                        <span class="tool-tag">think</span>
+                        <span class="tool-tag">http</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to forge the future?</h2>
+            <p>Join developers who believe coding tools should respect your privacy.</p>
+            <div class="cta-actions">
+                <a href="https://github.com/shindeyamit226-max/forge" class="btn btn-primary btn-lg" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Star on GitHub
+                </a>
+                <a href="#install" class="btn btn-ghost btn-lg">Install Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🔨</span>
+                    <span class="logo-text">Forge</span>
+                    <p>The agentic coding tool that actually works.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#comparison">Compare</a>
+                    <a href="#install">Install</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <a href="https://github.com/shindeyamit226-max/forge" target="_blank">GitHub</a>
+                    <a href="https://github.com/shindeyamit226-max/forge/issues" target="_blank">Issues</a>
+                    <a href="https://github.com/shindeyamit226-max/forge/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="https://github.com/shindeyamit226-max/forge/blob/main/LICENSE" target="_blank">MIT License</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Built with ❤️ by developers, for developers. Your code stays yours.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

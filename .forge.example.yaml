@@ -1,0 +1,37 @@
+# Forge Configuration Example
+# Copy to .forge.yaml in your project root, or ~/.forge/config.yaml globally.
+
+# LLM Provider Settings
+provider: ollama          # ollama | openai | anthropic | vllm | lmstudio | llamafile
+model: codellama:13b      # Model to use (depends on provider)
+temperature: 0.1          # 0.0 = deterministic, 1.0 = creative
+top_p: 0.95               # Nucleus sampling
+max_tokens: 4096          # Max tokens per response
+
+# API Connection
+api_base: http://localhost:11434/v1  # Ollama default
+# api_key: sk-***         # Required for cloud providers (or set FORGE_API_KEY)
+
+# Agent Behavior
+max_iterations: 30        # Max tool call loops per task
+max_context_tokens: 32000 # Max context window
+auto_approve: false       # Skip approval for dangerous operations (NOT recommended)
+
+# Safety
+confirm_destructive: true # Ask before rm, drop, etc.
+sandbox_shell: false      # Restrict shell commands
+
+# UI
+theme: forge_dark         # TUI theme
+
+# Features
+watch_files: true         # Watch for file changes
+git_auto_commit: false    # Auto-commit after changes
+
+# Paths
+# history_file: ~/.forge/history.json
+# snippets_dir: ~/.forge/snippets
+# custom_tools_dir: ~/.forge/tools
+
+# Logging
+log_level: INFO           # DEBUG | INFO | WARNING | ERROR
